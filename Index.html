@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF‑8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ام حوا بلاگز</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+
+    :root {
+      --bg-light: #fafafa;
+      --bg-dark: #1e1e1e;
+      --text-light: #222;
+      --text-dark: #eee;
+      --accent: #4a90e2;
+      --transition: 0.3s ease;
+    }
+
+    
+    
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .blog-title {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-weight: 700;
+      font-size: -1rem;
+      text-align: center;
+      margin: 0rem 0;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background-color: var(--accent);
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .toggle-btn {
+      background-color: white;
+      color: var(--accent);
+      border: none;
+      border-radius: 4px;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    body.dark .toggle-btn {
+      background-color: #333;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    .sidebar {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background-color: #f4f3f3;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    body.dark .sidebar {
+      background-color: #2a2a2a;
+    }
+    
+
+.blog-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.novel-cover-side {
+  flex: 1 1 300px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.novel-cover-img {
+  width: 50%;
+  height: 250px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.novel-cover-img:hover {
+  transform: scale(1.03);
+}
+
+.blog-content-side {
+  flex: 2 1 500px;
+  max-width: 800px;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 20px;
+  line-height: 2.2;
+  direction: rtl;
+}
+.read-more-btn {
+  margin-top: 15px;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  background-color: #222;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.read-more-btn:hover {
+  background-color: #444;
+}
+
+
+   .novel-links a {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 2px 4px rgba(5, 4, 4, 0.1);
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-weight: 500;
+        transition: var(--transition);
+    }
+    .novel-links a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .read-more-btn {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+.read-more-btn:hover {
+  background-color: #357ac7;
+}
+
+
+    @media (min-width: 768px) {
+      .sidebar {
+        width: 25%;
+        margin-bottom: 0;
+      }
+
+      .content {
+        width: 75%;
+      }
+    }
+
+    .blog {
+      background-color: var(--bg-light);
+      transition: background-color var(--transition);
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+
+    }
+
+    body.dark .blog {
+      background-color: #1f1f1f;
+      border-color: #444;
+    }
+
+    .blog h2 {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 2.5;
+      word-spacing: 5px;
+      margin-bottom: 1rem;
+      direction: rtl;
+      font-weight: bold;
+    }
+
+    .blog p {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-weight: 400;
+      word-spacing: 5px;
+      font-size: 15px;
+      line-height: 2.5;
+      direction: rtl;
+    }
+
+    .likes {
+      margin-top: 0.5rem;
+    }
+
+    .like-button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .comments {
+      margin-top: 1rem;
+    }
+
+    textarea,
+    input {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-family: 'Segoe UI', sans-serif;
+      transition: var(--transition);
+    }
+
+    button.comment-btn,
+    button.reply-btn {
+      margin-top: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 4px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+    }
+
+    .reply {
+      margin-left: 20px;
+      border-left: 2px solid #ccc;
+      padding-left: 10px;
+      margin-top: 0.5rem;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    footer {
+      position: relative;
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--accent);
+      color: white;
+      margin-top: 33px;
+      font-size: 0.9rem;
+    }
+
+    .author-tag {
+  color: white;
+  background-color: #007bff;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  font-weight: bold;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1 class="blog-title">ام حوا بلاگز</h1>
+    <div>
+      <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+      <button id="loginBtn" class="toggle-btn">Login</button>
+      <button id="logoutBtn" class="toggle-btn" style="display:none;">Logout</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h3>📚 Other Novels</h3>
+      <div class="novel-links">
+        <a href="Blog 1.html">پیر کامل</a>
+        <a href="#">اداس نسلیں</a>
+        <a href="#">راجہ گدھ</a>
+      </div>
+    </aside>
+
+
+    <main class="content">
+      <div class="blog" id="blog1">
+        <div class="blog-layout">
+          <!-- Novel Cover -->
+          <div class="novel-cover-side">
+            <img src="novel.jpg" alt="Novel Cover" class="novel-cover-img">
+          </div>
+
+  <!-- Blog Content -->
+  <div class="blog-content-side blog" id="blog1">
+    <h2>
+      عنوان: خاموش دیواریں<br>
+      مصنف: عبیر گجر<br>
+      تاریخِ اشاعت: جولائی 2025
+    </h2>
+    <p>
+      "وہ کمرہ برسوں سے بند پڑا تھا۔ نہ کوئی آواز، نہ کوئی روشنی۔ مگر جب میں پہلی بار اس میں داخل ہوا، تو ایسا لگا
+      جیسے دیواریں بولنے لگیں۔"
+
+      <span class="more-text" style="display: none;">
+        زاہد نے اس پرانے حویلی نما مکان کو خریدتے وقت کبھی نہیں سوچا تھا کہ اس کے اندر ماضی کی اتنی گہری پرتیں چھپی ہوں گی...
+        <br><br>
+        زاہد نے ہر رات اُس ڈائری کو پڑھا۔ ہر صفحہ اُس پر کھلتا چلا گیا۔ جیسے صبا خود اس سے باتیں کر رہی ہو۔ جیسے وہ
+        کمرے کی دیواروں میں قید ہو۔
+        <br><br>
+        "محبت صرف وقت کی قید نہیں، روح کی آزادی بھی مانگتی ہے۔"
+        یہ صبا کا آخری جملہ تھا۔
+        <br><br>
+        زاہد نے وہ ڈائری مکمل کی۔ اس کی کہانی دنیا تک پہنچائی۔ اور جب وہ آخری بار اس کمرے سے نکلا، تو دیواریں خاموش
+        تھیں۔ شاید صبا آزاد ہو چکی تھی۔
+        <br><br>
+        اختتام: یہ ناولچہ اردو ادب کے جذبے، گمشدہ داستانوں، اور روحانی جڑت کی نمائندگی کرتا ہے۔
+      </span>
+    </p>
+    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+  </div>
+</div>
+
+
+        <div class="likes">
+          <button class="like-button" onclick="likePost()">❤️</button>
+          <span id="likeCount">0</span> Likes
+        </div>
+        <div class="comments">
+          <h4>Comments</h4>
+          <div id="commentList"></div>
+          <textarea id="commentInput" placeholder="Write a comment..."></textarea>
+          <button class="comment-btn" onclick="addComment()">Post Comment</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 Urdu Literature Blog. All rights reserved.<br>
+    <strong>About Us:</strong> Celebrating Urdu literature and cultural storytelling.
+  </footer>
+
+  <!-- Firebase v8 (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyDWppb-LYaU2Qk4SIN_8TFEeJMlBvmy7-8",
+  authDomain: "login-6b587.firebaseapp.com",
+  projectId: "login-6b587",
+  storageBucket: "login-6b587.appspot.com",
+  messagingSenderId: "994966645424",
+  appId: "1:994966645424:web:e0c6afc835997d4056a975",
+  measurementId: "G-Y1CFFDG00N"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+const provider = new firebase.auth.GoogleAuthProvider();
+
+let currentUser = null;
+let blogId = 'blog1';
+
+// Replace with your actual author email here
+const authorEmail = "ummehawa464@gmail.com";
+
+const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+
+loginBtn.onclick = () => auth.signInWithPopup(provider).catch(e => alert(e.message));
+logoutBtn.onclick = () => auth.signOut();
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  loginBtn.style.display = user ? 'none' : 'inline-block';
+  logoutBtn.style.display = user ? 'inline-block' : 'none';
+  loadLikes();
+});
+
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+}
+
+function loadLikes() {
+  db.collection('likes').doc(blogId).get().then(doc => {
+    if (doc.exists) {
+      const data = doc.data();
+      document.getElementById('likeCount').textContent = data.count || 0;
+    }
+  });
+}
+
+function likePost() {
+  if (!currentUser) return alert('Sign in to like');
+  const likeRef = db.collection('likes').doc(blogId);
+  likeRef.get().then(doc => {
+    let data = doc.exists ? doc.data() : { count: 0, users: [] };
+    if (data.users.includes(currentUser.uid)) {
+      return alert('Already liked');
+    }
+    data.count = (data.count || 0) + 1;
+    data.users = [...data.users, currentUser.uid];
+    likeRef.set(data);
+    document.getElementById('likeCount').textContent = data.count;
+  });
+}
+
+function addComment() {
+  if (!currentUser) return alert('Sign in to comment');
+  const text = document.getElementById('commentInput').value.trim();
+  if (!text) return;
+
+  const isAuthor = currentUser.email === authorEmail ? true : false;
+
+  const div = document.createElement('div');
+  div.innerHTML = `<strong>${currentUser.displayName}</strong>${isAuthor ? ' <em>(Author)</em>' : ''}: ${text}
+    <button onclick="replyTo(this)">Reply</button>
+    <div class="reply-area" style="display:none;">
+      <textarea placeholder="Write reply..."></textarea>
+      <button onclick="postReply(this)">Post Reply</button>
+    </div>`;
+  document.getElementById('commentList').appendChild(div);
+  document.getElementById('commentInput').value = '';
+}
+
+window.replyTo = btn => {
+  const area = btn.nextElementSibling;
+  area.style.display = area.style.display === 'block' ? 'none' : 'block';
+};
+
+window.postReply = btn => {
+  if (!currentUser) return alert('Sign in to reply');
+  const text = btn.previousElementSibling.value.trim();
+  if (!text) return;
+
+  const isAuthor = currentUser.email === authorEmail ? true : false;
+
+  const replyDiv = document.createElement('div');
+  replyDiv.className = 'reply';
+  replyDiv.innerHTML = `<strong>${currentUser.displayName}</strong>${isAuthor ? ' <em>(Author)</em>' : ''}: ${text}`;
+  btn.closest('.reply-area').parentElement.appendChild(replyDiv);
+  btn.closest('.reply-area').style.display = 'none';
+};
+
+function toggleReadMore(button) {
+  const moreText = button.previousElementSibling.querySelector('.more-text');
+  if (moreText.style.display === 'none') {
+    moreText.style.display = 'inline';
+    button.textContent = 'Read Less';
+  } else {
+    moreText.style.display = 'none';
+    button.textContent = 'Read More';
+  }
+}
+
+
+  </script>
+</body>
+
+</html>
